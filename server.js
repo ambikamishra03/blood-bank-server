@@ -1,7 +1,6 @@
 import express from "express";
 import  testRoutes  from "./routes/testRoutes.js";
 import dotenv from "dotenv";
-import colors from "colors";
 import morgan from "morgan";
 import cors from "cors";
 import dbConnection from "./config/db.js";
