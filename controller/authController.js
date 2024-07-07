@@ -2,6 +2,7 @@ import userModel from '../models/userModel.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
+// register
 export const registerController = async (req,res) => {
 try {
     const existingUSer = await userModel.findOne({email:req.body.email})
@@ -37,7 +38,7 @@ try {
 
 
 
-
+// login
 export const loginController = async (req,res) =>{
    try {
       const user = await userModel.findOne({email:req.body.email});
@@ -68,5 +69,25 @@ export const loginController = async (req,res) =>{
     message:'Error in Login API',
     error
    })
+   }
+}
+
+//get current user 
+
+export const currentUserController = async (req,res) =>{
+   try {
+      const user = await userModel.findOne({_id:req.body.userId})
+      return res.status(200).send({
+         success: true,
+         message:'User fetched successfully',
+         user
+      })
+   } catch (error) {
+      console.log(error);
+      return res.status(500).send({
+         success:false,
+         message: 'unable to get current user',
+         error
+      })
    }
 }
