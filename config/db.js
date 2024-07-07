@@ -9,9 +9,9 @@ const dbConnection = async () =>{
     const conn = await mongoose.connect(MONGO_URI,{
         useNewUrlParser: true,
       })
-      console.log(`Mongodb connected: ${mongoose.connection.host}`.bgGreen);
+      console.log('Mongodb connected');
    } catch (error) {
-    console.log("Error while connecting to database",error.message.bgRed);
+    console.log("Error while connecting to database",error.message);
    }
 }
 
