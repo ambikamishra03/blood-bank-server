@@ -1,9 +1,11 @@
 import express from "express";
 import  authRoutes  from "./routes/authRoutes.js";
+import  inventoryRoutes  from "./routes/inventoryRoutes.js";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import cors from "cors";
 import dbConnection from "./config/db.js";
+
 
 dotenv.config()
 //mpongodb connection
@@ -24,7 +26,7 @@ const PORT = process.env.PORT || 8080
 
 // routes
 app.use('/api/v1/auth',authRoutes);
-
+app.use('/api/v1/inventory',inventoryRoutes);
 
 
 //listen
